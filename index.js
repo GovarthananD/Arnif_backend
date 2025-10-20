@@ -10,8 +10,13 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-  origin: "https://arnifblogs.netlify.app/", // frontend URL
-  credentials: true, // required if using cookies
+  origin: [
+    "http://localhost:5173",            // for local dev
+    "https://arnifblogs.netlify.app"    // ✅ your deployed frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 }));
 app.use(express.json());
 DB();
