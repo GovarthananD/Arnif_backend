@@ -18,8 +18,5 @@ DB();
 app.use('/auth', authRoutes);
 app.use("/blogs", blogRoutes);
 
-app.get('/', (req, res) => {
-    console.log('App working!');
-});
 
 app.listen(process.env.PORT, () => { console.log(`Server running on PORT ${process.env.PORT}`) })
